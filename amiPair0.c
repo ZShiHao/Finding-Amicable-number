@@ -12,35 +12,35 @@ int main()
 	int t,x=1;
 	clock_t T;
 	for(n=1;n<=N;n++){
-			int m,M=0;
-			for(m=1;m<n;m++){
-				if(n%m==0)
-				{
-					M=M+m;
+		int m,M=0;
+		for(m=1;m<n;m++){
+			if(n%m==0)
+			{
+				M=M+m;
+			}
+		}
+		int m0,M0=0;
+		for(m0=1;m0<M;m0++){
+			if(M%m0==0)
+			{
+				M0=M0+m0;
+			}
+		}
+		if(M0==n&&M!=n){
+			int k;
+			for(k=0;k<j;k++){
+				if(n==b[k]){
+					x=0;
+					break;
 				}
 			}
-			int m0,M0=0;
-			for(m0=1;m0<M;m0++){
-				if(M%m0==0)
-				{
-					M0=M0+m0;
-				}
+			if(x){
+				b[j++]=M;
+				t=j;
+				printf("%d and %d   \n",n,M);
 			}
-			if(M0==n&&M!=n){
-				int k;
-				for(k=0;k<j;k++){
-					if(n==b[k]){
-						x=0;
-						break;
-					}
-				}
-				if(x){
-					b[j++]=M;
-					t=j;
-					printf("%d and %d   \n",n,M);
-				}
-				x=1;
-			}
+			x=1;
+		}
 	}
 	printf("There are %d Amicable numbers.\n", t);
 	T=clock();
